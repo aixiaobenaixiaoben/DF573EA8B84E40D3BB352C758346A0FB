@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3d5f7d33-a88b-44ca-998b-72247714124b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/apple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigator/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigator/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigator/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigator/Stack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigator/Drawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigator/Drawer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/navigator/Tab.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigator/Tab.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -38,8 +37,8 @@
       <file leaf-file-name="Drawer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/navigator/Drawer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+            <state relative-caret-position="248">
+              <caret line="46" column="24" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="24" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -50,10 +49,22 @@
       <file leaf-file-name="Tab.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/navigator/Tab.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1320">
-              <caret line="60" column="3" lean-forward="true" selection-start-line="60" selection-start-column="3" selection-end-line="60" selection-end-column="3" />
+            <state relative-caret-position="1584">
+              <caret line="72" column="3" lean-forward="true" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Stack.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/navigator/Stack.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="36" column="10" lean-forward="true" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,14 +107,15 @@
         <option value="$PROJECT_DIR$/src/react/Clock.js" />
         <option value="$PROJECT_DIR$/App.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/navigator/App.js" />
         <option value="$PROJECT_DIR$/src/navigator/practice/DrawerMainScreen.js" />
         <option value="$PROJECT_DIR$/src/navigator/practice/MyDrawerNavigation.js" />
         <option value="$PROJECT_DIR$/src/navigator/practice/SecondScreen.js" />
         <option value="$PROJECT_DIR$/src/navigator/practice/TabMainScreen.js" />
         <option value="$PROJECT_DIR$/src/navigator/practice/MyStackNavigation.js" />
         <option value="$PROJECT_DIR$/src/navigator/practice/DrawerSecondScreen.js" />
+        <option value="$PROJECT_DIR$/src/navigator/App.js" />
         <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/src/navigator/Stack.js" />
         <option value="$PROJECT_DIR$/src/navigator/Tab.js" />
         <option value="$PROJECT_DIR$/src/navigator/Drawer.js" />
       </list>
@@ -252,12 +264,12 @@
       <workItem from="1526367328396" duration="3243000" />
       <workItem from="1526376066057" duration="15390000" />
       <workItem from="1526479946166" duration="19884000" />
-      <workItem from="1526694570517" duration="11213000" />
+      <workItem from="1526694570517" duration="18850000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77039000" />
+    <option name="totallyTimeSpent" value="84676000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -272,7 +284,7 @@
     <frame x="0" y="23" width="1280" height="720" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49919742" visible="true" weight="0.23984376" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49919742" weight="0.23984376" />
       <window_info anchor="bottom" id="TODO" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" show_stripe_button="false" side_tool="true" weight="0.32972136" />
@@ -326,7 +338,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/navigator/App.js">
+    <entry file="file://$PROJECT_DIR$/src/navigator/Stack.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
@@ -559,6 +571,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -703,10 +718,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/navigator/App.js">
+    <entry file="file://$PROJECT_DIR$/src/navigator/Stack.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-438">
-          <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        <state relative-caret-position="325">
+          <caret line="36" column="10" lean-forward="true" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -715,8 +730,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/navigator/Tab.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="60" column="3" lean-forward="true" selection-start-line="60" selection-start-column="3" selection-end-line="60" selection-end-column="3" />
+        <state relative-caret-position="1584">
+          <caret line="72" column="3" lean-forward="true" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -725,8 +740,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/navigator/Drawer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        <state relative-caret-position="248">
+          <caret line="46" column="24" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="24" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

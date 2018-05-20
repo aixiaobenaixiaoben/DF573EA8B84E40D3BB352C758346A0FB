@@ -1,37 +1,17 @@
-import React from 'react';
-import { Button, View, Text, Image } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import React, {Component} from 'react';
+import {Button, StyleSheet, Text, View} from 'react-native';
+import {StackNavigator} from 'react-navigation';
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
-
+/** Stack navigation */
 /** React Navigation (v2)-Fundamentals */
 
-class LogoTitle extends React.Component {
-  render() {
-    return (
-      <FontAwesome name='apple' size={30} color='black'/>
-    );
-  }
-}
-
-class HomeScreen extends React.Component {
+class HomeScreen extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      count: 0,
-    };
+    this.state = {count: 0};
   }
-
-  static navigationOptions = ({navigation}) => {
-    const params = navigation.state.params || {};
-
-    return {
-      headerLeft: (<Button title="Info" color="#fff" onPress={() => navigation.navigate('MyModal')}/>),
-      headerTitle: <LogoTitle/>,
-      headerRight: (<Button title="+1" color="#fff" onPress={params.increaseCount}/>),
-    };
-  };
 
   _increaseCount = () => {
     this.setState({count: this.state.count + 1});
@@ -42,14 +22,13 @@ class HomeScreen extends React.Component {
   }
 
   render() {
-
     let param = {
       itemId: 82,
       otherParam: 'Anything you want here',
     };
 
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.screen}>
         <Text>Home Screen</Text>
         <Text>Count: {this.state.count}</Text>
         <Button
@@ -61,26 +40,14 @@ class HomeScreen extends React.Component {
   }
 }
 
-class DetailsScreen extends React.Component {
-
-  static navigationOptions = ({navigation, navigationOptions}) => {
-    return {
-      title: navigation.getParam('otherParam', 'A nested Details Screen'),
-      headerStyle: {
-        backgroundColor: navigationOptions.headerTintColor,
-      },
-      headerTintColor: navigationOptions.headerStyle.backgroundColor,
-    };
-  };
-
+class DetailsScreen extends Component {
   render() {
-
     const { navigation } = this.props;
     const itemId = navigation.getParam('itemId', 'NO-ID');
     const otherParam = navigation.getParam('otherParam', 'some default value');
 
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.screen}>
         <Text>Details Screen</Text>
         <Text>itemId: {JSON.stringify(itemId)}</Text>
         <Text>otherParam: {JSON.stringify(otherParam)}</Text>
@@ -107,10 +74,10 @@ class DetailsScreen extends React.Component {
   }
 }
 
-class ModalScreen extends React.Component {
+class ModalScreen extends Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.screen}>
         <Text style={{ fontSize: 30 }}>This is a modal!</Text>
         <Button
           title="Dismiss"
@@ -121,13 +88,41 @@ class ModalScreen extends React.Component {
   }
 }
 
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+});
+
 const MainStack = StackNavigator (
   {
-    Home: HomeScreen,
-    Details: DetailsScreen,
+    Home: {
+      screen: HomeScreen,
+      navigationOptions: ({navigation}) => {
+        const params = navigation.state.params || {};
+        return {
+          headerLeft: <Button title="Info" color="#fff" onPress={() => navigation.navigate('MyModal')}/>,
+          headerTitle: <FontAwesome name='apple' size={30} color='black'/>,
+          headerRight: <Button title="+1" color="#fff" onPress={() => params.increaseCount()}/>,
+        };
+      }
+    },
+    Details: {
+      screen: DetailsScreen,
+      navigationOptions: ({navigation, navigationOptions}) => {
+        return {
+          title: navigation.getParam('otherParam', 'A nested Details Screen'),
+          headerStyle: {
+            backgroundColor: navigationOptions.headerTintColor,
+          },
+          headerTintColor: navigationOptions.headerStyle.backgroundColor,
+        };
+      }
+    },
   },
   {
-    initialRouteName: 'Home',
     navigationOptions: {
       headerStyle: {
         backgroundColor: '#f4511e',
@@ -155,9 +150,5 @@ const RootStack = StackNavigator (
   },
 );
 
-export default class App extends React.Component {
-  render() {
-    return <RootStack />;
-  }
-}
+export default RootStack;
 

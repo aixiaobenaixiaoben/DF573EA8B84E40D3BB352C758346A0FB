@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Drawer = DrawerNavigator(
+const RootDrawer = DrawerNavigator(
   {
     Home: {
       screen: HomeScreen,
@@ -64,4 +64,4 @@ const Drawer = DrawerNavigator(
   }
 );
 
-export default Drawer;
+export default RootDrawer;

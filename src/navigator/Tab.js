@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View, Text, Button} from "react-native";
+import {View, Text, Button, StyleSheet} from "react-native";
 import {TabNavigator, StackNavigator} from "react-navigation";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
@@ -8,12 +8,8 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 class DetailScreen extends Component{
   render() {
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <View style={styles.screen}>
         <Text>Details!</Text>
-        <Button
-          title='Drawer'
-          onPress={this.props.navigation.openDrawer()}
-        />
       </View>
     );
   }
@@ -22,7 +18,7 @@ class DetailScreen extends Component{
 class HomeScreen extends Component{
   render() {
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <View style={styles.screen}>
         <Text>Home!</Text>
         <Button
           title='Go to Details'
@@ -36,7 +32,7 @@ class HomeScreen extends Component{
 class SettingsScreen extends Component{
   render() {
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <View style={styles.screen}>
         <Text>Settings!</Text>
         <Button
           title='Go to Details'
@@ -46,6 +42,14 @@ class SettingsScreen extends Component{
     );
   }
 }
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+});
 
 const HomeStack= StackNavigator({
   Home: HomeScreen,
@@ -57,7 +61,7 @@ const SettingsStack= StackNavigator({
   Details: DetailScreen,
 });
 
-export default TabNavigator(
+const RootTab = TabNavigator(
   {
     Home: HomeStack,
     Settings: SettingsStack,
@@ -82,4 +86,4 @@ export default TabNavigator(
   }
 );
 
-
+export default RootTab;
