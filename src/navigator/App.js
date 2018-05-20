@@ -1,16 +1,15 @@
 import React from 'react';
 import { Button, View, Text, Image } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+
 
 /** React Navigation (v2)-Fundamentals */
 
 class LogoTitle extends React.Component {
   render() {
     return (
-      <Image
-        source={require('../../img/apple.png')}
-        style={{width: 30, height: 30}}
-      />
+      <FontAwesome name='apple' size={30} color='black'/>
     );
   }
 }
