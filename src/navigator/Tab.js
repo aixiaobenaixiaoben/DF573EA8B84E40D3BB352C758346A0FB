@@ -15,6 +15,16 @@ class DetailScreen extends Component{
   }
 }
 
+class AboutScreen extends Component{
+  render() {
+    return (
+      <View style={styles.screen}>
+        <Text>About!</Text>
+      </View>
+    );
+  }
+}
+
 class HomeScreen extends Component{
   render() {
     return (
@@ -35,8 +45,8 @@ class SettingsScreen extends Component{
       <View style={styles.screen}>
         <Text>Settings!</Text>
         <Button
-          title='Go to Details'
-          onPress={() => this.props.navigation.navigate('Details')}
+          title='Go to About'
+          onPress={() => this.props.navigation.navigate('About')}
         />
       </View>
     );
@@ -51,39 +61,58 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeStack= StackNavigator({
-  Home: HomeScreen,
-  Details: DetailScreen,
-});
-
-const SettingsStack= StackNavigator({
-  Settings: SettingsScreen,
-  Details: DetailScreen,
-});
-
 const RootTab = TabNavigator(
   {
-    Home: HomeStack,
-    Settings: SettingsStack,
+    Home: {
+      screen: HomeScreen,
+      navigationOptions: {
+        title: '首页',
+        tabBarIcon: ({focused, tintColor}) => (
+          <Ionicons name={`ios-information-circle${focused ? '' : '-outline'}`} size={25} color={tintColor}/>
+        ),
+      }
+    },
+    Settings: {
+      screen: SettingsScreen,
+      navigationOptions: {
+        title: '设置',
+        tabBarIcon: ({focused, tintColor}) => (
+          <Ionicons name={`ios-options${focused ? '' : '-outline'}`} size={25} color={tintColor}/>
+        ),
+      }
+    },
   },
   {
-    navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state;
-        let iconName;
-        if (routeName === 'Home') {
-          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-        } else if (routeName === 'Settings') {
-          iconName = `ios-options${focused ? '' : '-outline'}`;
-        }
-        return <Ionicons name={iconName} size={25} color={tintColor}/>
-      },
-    }),
     tabBarOptions: {
       activeTintColor: 'tomato',
       inactiveTintColor: 'gray',
     },
+    lazy: true,
   }
 );
 
-export default RootTab;
+const Root = StackNavigator(
+  {
+    Main: {
+      screen: RootTab,
+      navigationOptions: {
+        title: 'RootTab',
+      }
+    },
+    Details: {
+      screen: DetailScreen,
+      navigationOptions: {
+        title: 'DetailScreen',
+      }
+    },
+    About: {
+      screen: AboutScreen,
+      navigationOptions: ({navigation}) => ({
+        title: 'AboutScreen',
+        headerLeft: <Button title="Back" onPress={() => navigation.pop()}/>,
+      })
+    },
+  },
+);
+
+export default Root;
