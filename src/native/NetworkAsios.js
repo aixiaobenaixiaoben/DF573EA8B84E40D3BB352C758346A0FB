@@ -2,6 +2,8 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import axios from "axios";
 
+axios.defaults.baseURL = 'https://facebook.github.io/react-native';
+
 export default class NetworkAsios extends React.Component {
 
   constructor(props){
