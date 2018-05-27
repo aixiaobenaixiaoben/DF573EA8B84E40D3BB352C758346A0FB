@@ -9,11 +9,16 @@
   "dependencies": {
     "antd-mobile": "^2.1.8",
     "axios": "^0.18.0",
+    "prop-types": "^15.6.1",
     "querystring": "^0.2.0",
     "react": "16.3.1",
     "react-native": "0.55.4",
     "react-native-vector-icons": "^4.6.0",
-    "react-navigation": "^2.0.1"
+    "react-navigation": "^2.0.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-actions": "^2.3.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-plugin-import": "^1.7.0"
