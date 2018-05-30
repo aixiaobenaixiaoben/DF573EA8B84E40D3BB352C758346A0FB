@@ -1,11 +1,11 @@
 import React from "react";
-import {StackNavigator, TabNavigator} from "react-navigation";
+import {createBottomTabNavigator, createStackNavigator} from "react-navigation";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import {List, AppRoute} from "./app";
-import {Menu, HomeRoute} from "./home";
+import {AppRoute, List} from "./app";
+import {HomeRoute, Menu} from "./home";
 
 
-const RootTab = TabNavigator(
+const RootTab = createBottomTabNavigator(
   {
     List: {
       screen: List,
@@ -35,12 +35,13 @@ const RootTab = TabNavigator(
   }
 );
 
-const RootStack = StackNavigator(
+const RootStack = createStackNavigator(
   {
     RootTab: {
       screen: RootTab,
       navigationOptions: {
         title: 'Root',
+        headerBackTitle: null,
       }
     },
     ...AppRoute,
