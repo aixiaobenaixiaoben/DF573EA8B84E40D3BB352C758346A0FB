@@ -47,6 +47,13 @@ const RootStack = createStackNavigator(
     ...AppRoute,
     ...HomeRoute,
   },
+  {
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+    },
+  }
 );
 
 export default RootStack;
