@@ -14,7 +14,7 @@ class List extends Component {
   }
 
   componentDidMount(){
-    axios.get('https://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city=%E5%8C%97%E4%BA%AC&start=0&count=10')
+    axios.get('https://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city=上海')
       .then(response => {
         // console.log(response.data);
         this.setState({
@@ -30,7 +30,7 @@ class List extends Component {
   _keyExtractor = (item) => item.id;
 
   _onPressItem = (id: string) => {
-    alert(id);
+    this.props.navigation.navigate('AppDetail', {id});
   };
 
   _renderItem = ({item}) => (
