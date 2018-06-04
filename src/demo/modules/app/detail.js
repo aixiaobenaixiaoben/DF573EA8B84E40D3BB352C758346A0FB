@@ -1,5 +1,15 @@
 import React, {Component} from "react";
-import {Image, ProgressViewIOS, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {
+  Image,
+  Platform,
+  ProgressBarAndroid,
+  ProgressViewIOS,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from "react-native";
 import axios from "axios/index";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
@@ -42,7 +52,9 @@ class Detail extends Component {
 
   render() {
     if (this.state.movie === null) {
-      return (<ProgressViewIOS progress = {this.state.progress}/>);
+      return Platform.OS === 'ios'
+        ? <ProgressViewIOS progress = {this.state.progress}/>
+        : <ProgressBarAndroid styleAttr="Horizontal"/>;
     }
 
     const {
