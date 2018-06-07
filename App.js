@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {RootStack} from "./src/demo";
+import Main from "./src/demo-with-redux";
 
 
 class Root extends Component{
 
   render() {
-    return <RootStack/>;
+    return <Main/>;
   }
 }
 
