@@ -1,4 +1,4 @@
 import {RootStack} from "./modules";
 
 
-export {RootStack};
+export default RootStack;

@@ -2,7 +2,7 @@ import React from "react";
 import {createBottomTabNavigator, createStackNavigator} from "react-navigation";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-import {app, home} from "./modules";
+import {app, home, ref} from "./modules";
 
 
 const RootTab = createBottomTabNavigator(
@@ -12,7 +12,7 @@ const RootTab = createBottomTabNavigator(
       navigationOptions: {
         title: '首页',
         tabBarIcon: ({focused, tintColor}) => (
-          <Ionicons name={`ios-information-circle${focused ? '' : '-outline'}`} size={25} color={tintColor}/>
+          <Ionicons name={`ios-american-football${focused ? '' : '-outline'}`} size={25} color={tintColor}/>
         ),
       }
     },
@@ -21,7 +21,16 @@ const RootTab = createBottomTabNavigator(
       navigationOptions: {
         title: '其它',
         tabBarIcon: ({focused, tintColor}) => (
-          <Ionicons name={`ios-options${focused ? '' : '-outline'}`} size={25} color={tintColor}/>
+          <Ionicons name={`ios-paper-plane${focused ? '' : '-outline'}`} size={25} color={tintColor}/>
+        ),
+      }
+    },
+    Ref: {
+      screen: ref.Ref,
+      navigationOptions: {
+        title: '🐜',
+        tabBarIcon: ({focused, tintColor}) => (
+          <Ionicons name={`ios-leaf${focused ? '' : '-outline'}`} size={25} color={tintColor}/>
         ),
       }
     },
@@ -46,5 +55,6 @@ export default createStackNavigator(
     },
     ...app.AppRoute,
     ...home.HomeRoute,
+    ...ref.RefRoute,
   },
 );
