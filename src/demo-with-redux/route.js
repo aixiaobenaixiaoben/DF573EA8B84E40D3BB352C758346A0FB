@@ -48,13 +48,12 @@ export default createStackNavigator(
   {
     RootTab: {
       screen: RootTab,
-      navigationOptions: {
-        title: 'Root',
-        headerBackTitle: null,
-      }
     },
     ...app.AppRoute,
     ...home.HomeRoute,
     ...ref.RefRoute,
   },
+  {
+    headerMode: 'none',
+  }
 );
