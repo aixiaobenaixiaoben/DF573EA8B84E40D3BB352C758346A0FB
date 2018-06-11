@@ -1,3 +1,4 @@
+/** @flow */
 import AppRoute from "./route";
 import List from "./containers/list";
 import {NAME} from "./constants";

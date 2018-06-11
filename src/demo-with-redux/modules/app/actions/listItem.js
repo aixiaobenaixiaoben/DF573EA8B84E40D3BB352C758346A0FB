@@ -1,3 +1,4 @@
+/** @flow */
 import {LIST_ITEM_VISIT} from "../constants";
 
 

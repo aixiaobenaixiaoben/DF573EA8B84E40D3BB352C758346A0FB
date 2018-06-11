@@ -1,10 +1,11 @@
+/** @flow */
 import {handleActions} from "redux-actions";
 
 import {LIST_ITEM_VISIT} from "../constants";
 
 
 type State = {
-  visit: Array,
+  visit: Array<string>,
 }
 
 const initialState: State = {

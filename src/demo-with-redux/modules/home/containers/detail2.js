@@ -1,8 +1,9 @@
+/** @flow */
 import React, {Component} from "react";
 import {View, Text} from "react-native";
 
 
-class Detail2 extends Component {
+class Detail2 extends Component<any, any> {
 
   render() {
     return (

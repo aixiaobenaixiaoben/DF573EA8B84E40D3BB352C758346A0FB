@@ -1,3 +1,4 @@
+/** @flow */
 import Detail1 from "./containers/detail1";
 import Detail2 from "./containers/detail2";
 import Detail3 from "./containers/detail3";

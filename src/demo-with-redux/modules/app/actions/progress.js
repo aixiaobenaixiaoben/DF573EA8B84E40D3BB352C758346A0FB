@@ -1,3 +1,4 @@
+/** @flow */
 import {PROGRESS_DESTROY, PROGRESS_WORKING} from "../constants";
 
 export type Action = {

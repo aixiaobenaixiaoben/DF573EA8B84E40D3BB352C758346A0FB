@@ -1,3 +1,4 @@
+/** @flow */
 import Checkbox from "./components/Checkbox";
 import Pagination from "./components/Pagination";
 import SegmentedControl from "./components/SegmentedControl";

@@ -1,3 +1,4 @@
+/** @flow */
 import React, {Component} from "react";
 import {FlatList} from "react-native";
 import {Button} from "antd-mobile-rn";
@@ -146,7 +147,7 @@ const refs = [
   },
 ];
 
-class Ref extends Component {
+class Ref extends Component<any, any> {
 
   _onPressItem = (route: string) => {
     this.props.navigation.navigate(route);

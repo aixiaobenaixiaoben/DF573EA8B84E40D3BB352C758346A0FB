@@ -1,3 +1,4 @@
+/** @flow */
 import {handleActions} from "redux-actions";
 
 import {LIST_REQUEST} from "../constants";

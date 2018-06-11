@@ -1,3 +1,4 @@
+/** @flow */
 import React, {Component} from "react";
 import {Image, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {connect} from "react-redux";
@@ -9,7 +10,7 @@ import style from "./styles/details";
 import Progress from "../components/progress";
 
 
-class Detail extends Component {
+class Detail extends Component<any, any> {
 
   componentDidMount(){
     const id = this.props.navigation.getParam('id');
@@ -18,7 +19,7 @@ class Detail extends Component {
 
   render() {
     const { movie, marks, toggleWatched, toggleWish } = this.props;
-    if (movie === undefined) {
+    if (Object.keys(movie).length === 0) {
       return <Progress/>;
     }
 
@@ -112,7 +113,7 @@ class Detail extends Component {
 }
 
 Detail.propTypes = {
-  movie: PropTypes.object,
+  movie: PropTypes.object.isRequired,
   marks: PropTypes.object.isRequired,
   requestMovie: PropTypes.func.isRequired,
   toggleWatched: PropTypes.func.isRequired,

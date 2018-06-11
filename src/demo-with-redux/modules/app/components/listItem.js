@@ -1,3 +1,4 @@
+/** @flow */
 import React, {Component} from "react";
 import {ImageBackground, Text, TouchableOpacity, View} from "react-native";
 import {connect} from "react-redux";
@@ -8,7 +9,7 @@ import * as actions from "../actions/listItem";
 import style from "./styles/listItem";
 
 
-class ListItem extends Component{
+class ListItem extends Component<any, any> {
 
   _isVisited = () => {
     const { movie, visit } = this.props;

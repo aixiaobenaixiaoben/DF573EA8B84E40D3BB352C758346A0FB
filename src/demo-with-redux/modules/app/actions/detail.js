@@ -1,3 +1,4 @@
+/** @flow */
 import axios from "axios/index";
 
 import {DETAIL_CLEAR, DETAIL_REQUEST, DETAIL_WATCHED, DETAIL_WISH} from "../constants";

@@ -1,3 +1,4 @@
+/** @flow */
 import React, {Component} from "react";
 import {Platform, ProgressBarAndroid, ProgressViewIOS} from "react-native";
 import {connect} from "react-redux";
@@ -6,7 +7,9 @@ import PropTypes from "prop-types";
 import * as actions from "../actions/progress";
 
 
-class Progress extends Component {
+class Progress extends Component<any, any> {
+
+  timer;
 
   componentDidMount(){
     const { progressing } = this.props;

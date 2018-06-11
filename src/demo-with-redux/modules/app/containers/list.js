@@ -1,3 +1,4 @@
+/** @flow */
 import React, {Component} from "react";
 import {FlatList} from "react-native";
 import {connect} from "react-redux";
@@ -7,7 +8,7 @@ import ListItem from "../components/listItem";
 import * as actions from "../actions/list";
 
 
-class List extends Component {
+class List extends Component<any, any> {
 
   componentDidMount(){
     this.props.requestList();

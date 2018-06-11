@@ -1,8 +1,9 @@
+/** @flow */
 import React, {Component} from "react";
 import {View, Button} from "react-native";
 
 
-class Menu extends Component {
+class Menu extends Component<any, any> {
 
   openDetail = (route: string) => {
     this.props.navigation.navigate(route);

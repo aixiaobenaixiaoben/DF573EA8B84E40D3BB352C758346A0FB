@@ -1,3 +1,4 @@
+/** @flow */
 import {handleActions} from "redux-actions";
 
 import {PROGRESS_DESTROY, PROGRESS_WORKING} from "../constants";

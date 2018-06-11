@@ -1,3 +1,4 @@
+/** @flow */
 import {handleActions} from "redux-actions";
 
 import {DETAIL_CLEAR, DETAIL_REQUEST, DETAIL_WATCHED, DETAIL_WISH} from "../constants";
@@ -9,7 +10,7 @@ type State = {
 }
 
 const initialState: State = {
-  movie: undefined,
+  movie: {},
   marks: {},
 };
 
@@ -17,7 +18,7 @@ export default handleActions(
   {
     [DETAIL_CLEAR]: (state: State, action) => {
 
-      return { ...state, movie: undefined }
+      return { ...state, movie: {} }
 
     },
     [DETAIL_REQUEST]: (state: State, action) => {

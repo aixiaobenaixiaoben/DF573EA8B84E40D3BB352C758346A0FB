@@ -1,3 +1,4 @@
+/** @flow */
 import Detail from "./containers/detail";
 
 

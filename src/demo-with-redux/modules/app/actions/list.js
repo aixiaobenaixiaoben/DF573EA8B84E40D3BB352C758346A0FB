@@ -1,3 +1,4 @@
+/** @flow */
 import axios from "axios/index";
 
 import {LIST_REQUEST} from "../constants";
