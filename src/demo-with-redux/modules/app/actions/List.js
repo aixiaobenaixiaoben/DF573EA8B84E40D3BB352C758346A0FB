@@ -1,7 +1,7 @@
 /** @flow */
-import axios from "axios/index";
+import axios from "axios/index"
 
-import {LIST_REQUEST} from "../constants";
+import {LIST_REQUEST} from "../Constants"
 
 
 export type ActionAsync = (dispatch: Function) => void

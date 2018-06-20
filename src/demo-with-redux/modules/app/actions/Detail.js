@@ -1,7 +1,7 @@
 /** @flow */
-import axios from "axios/index";
+import axios from "axios/index"
 
-import {DETAIL_CLEAR, DETAIL_REQUEST, DETAIL_WATCHED, DETAIL_WISH} from "../constants";
+import {DETAIL_CLEAR, DETAIL_REQUEST, DETAIL_WATCHED, DETAIL_WISH} from "../Constants"
 
 
 export type Action = {

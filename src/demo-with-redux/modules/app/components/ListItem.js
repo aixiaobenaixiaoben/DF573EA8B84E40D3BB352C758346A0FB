@@ -1,12 +1,12 @@
 /** @flow */
-import React, {Component} from "react";
-import {ImageBackground, Text, TouchableOpacity, View} from "react-native";
-import {connect} from "react-redux";
-import PropTypes from "prop-types";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
+import React, {Component} from "react"
+import {ImageBackground, Text, TouchableOpacity, View} from "react-native"
+import {connect} from "react-redux"
+import PropTypes from "prop-types"
+import FontAwesome from "react-native-vector-icons/FontAwesome"
 
-import * as actions from "../actions/listItem";
-import style from "./styles/listItem";
+import * as actions from "../actions/ListItem"
+import style from "./styles/ListItem"
 
 
 class ListItem extends Component<any, any> {

@@ -1,10 +1,10 @@
 /** @flow */
-import {combineReducers} from "redux";
+import {combineReducers} from "redux"
 
-import list from "./list";
-import detail from "./detail";
-import listItem from "./listItem";
-import progress from "./progress";
+import list from "./List"
+import detail from "./Detail"
+import listItem from "./ListItem"
+import progress from "./Progress"
 
 
 export default combineReducers({

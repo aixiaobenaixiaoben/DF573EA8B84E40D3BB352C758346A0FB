@@ -1,5 +1,5 @@
 /** @flow */
-import Detail from "./containers/detail";
+import Detail from "./containers/Detail"
 
 
 export default {

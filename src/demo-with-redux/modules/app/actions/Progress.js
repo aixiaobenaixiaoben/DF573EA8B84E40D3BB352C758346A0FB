@@ -1,5 +1,5 @@
 /** @flow */
-import {PROGRESS_DESTROY, PROGRESS_WORKING} from "../constants";
+import {PROGRESS_DESTROY, PROGRESS_WORKING} from "../Constants"
 
 export type Action = {
   type: string,

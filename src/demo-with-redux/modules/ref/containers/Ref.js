@@ -1,7 +1,7 @@
 /** @flow */
-import React, {Component} from "react";
-import {FlatList} from "react-native";
-import {Button} from "antd-mobile-rn";
+import React, {Component} from "react"
+import {FlatList} from "react-native"
+import {Button} from "antd-mobile-rn"
 
 
 const refs = [

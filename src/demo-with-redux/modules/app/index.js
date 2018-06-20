@@ -1,7 +1,7 @@
 /** @flow */
-import AppRoute from "./route";
-import List from "./containers/list";
-import {NAME} from "./constants";
-import reducer from "./reducers";
+import AppRoute from "./Route"
+import List from "./containers/List"
+import {NAME} from "./Constants"
+import reducer from "./reducers"
 
 export default {AppRoute, List, NAME, reducer};

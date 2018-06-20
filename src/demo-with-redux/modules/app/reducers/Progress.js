@@ -1,7 +1,7 @@
 /** @flow */
-import {handleActions} from "redux-actions";
+import {handleActions} from "redux-actions"
 
-import {PROGRESS_DESTROY, PROGRESS_WORKING} from "../constants";
+import {PROGRESS_DESTROY, PROGRESS_WORKING} from "../Constants"
 
 
 type State = {

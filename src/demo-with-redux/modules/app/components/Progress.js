@@ -1,10 +1,10 @@
 /** @flow */
-import React, {Component} from "react";
-import {Platform, ProgressBarAndroid, ProgressViewIOS} from "react-native";
-import {connect} from "react-redux";
-import PropTypes from "prop-types";
+import React, {Component} from "react"
+import {Platform, ProgressBarAndroid, ProgressViewIOS} from "react-native"
+import {connect} from "react-redux"
+import PropTypes from "prop-types"
 
-import * as actions from "../actions/progress";
+import * as actions from "../actions/Progress"
 
 
 class Progress extends Component<any, any> {

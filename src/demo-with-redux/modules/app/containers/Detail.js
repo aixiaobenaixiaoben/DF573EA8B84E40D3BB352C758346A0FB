@@ -1,13 +1,13 @@
 /** @flow */
-import React, {Component} from "react";
-import {Image, ScrollView, Text, TouchableOpacity, View} from "react-native";
-import {connect} from "react-redux";
-import PropTypes from "prop-types";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
+import React, {Component} from "react"
+import {Image, ScrollView, Text, TouchableOpacity, View} from "react-native"
+import {connect} from "react-redux"
+import PropTypes from "prop-types"
+import FontAwesome from "react-native-vector-icons/FontAwesome"
 
-import * as actions from "../actions/detail";
-import style from "./styles/details";
-import Progress from "../components/progress";
+import * as actions from "../actions/Detail"
+import style from "./styles/Detail"
+import Progress from "../components/Progress"
 
 
 class Detail extends Component<any, any> {

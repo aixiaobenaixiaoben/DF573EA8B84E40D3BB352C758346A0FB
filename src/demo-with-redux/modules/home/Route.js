@@ -1,7 +1,7 @@
 /** @flow */
-import Detail1 from "./containers/detail1";
-import Detail2 from "./containers/detail2";
-import Detail3 from "./containers/detail3";
+import Detail1 from "./containers/Detail1"
+import Detail2 from "./containers/Detail2"
+import Detail3 from "./containers/Detail3"
 
 export default {
   HomeDetail1: {

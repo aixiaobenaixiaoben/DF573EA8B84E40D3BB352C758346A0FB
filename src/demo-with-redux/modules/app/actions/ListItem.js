@@ -1,5 +1,5 @@
 /** @flow */
-import {LIST_ITEM_VISIT} from "../constants";
+import {LIST_ITEM_VISIT} from "../Constants"
 
 
 export type Action = {

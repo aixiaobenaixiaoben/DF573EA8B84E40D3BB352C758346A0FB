@@ -1,6 +1,6 @@
 /** @flow */
-import React, {Component} from "react";
-import {View, Text} from "react-native";
+import React, {Component} from "react"
+import {Text, View} from "react-native"
 
 
 class Detail3 extends Component<any, any> {

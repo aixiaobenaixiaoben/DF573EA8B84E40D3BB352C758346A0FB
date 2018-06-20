@@ -1,7 +1,7 @@
 /** @flow */
-import {handleActions} from "redux-actions";
+import {handleActions} from "redux-actions"
 
-import {LIST_REQUEST} from "../constants";
+import {LIST_REQUEST} from "../Constants"
 
 
 type State = {

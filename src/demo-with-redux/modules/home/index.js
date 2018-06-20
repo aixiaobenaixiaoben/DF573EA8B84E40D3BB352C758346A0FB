@@ -1,5 +1,5 @@
 /** @flow */
-import HomeRoute from "./route";
-import Menu from "./containers/memu";
+import HomeRoute from "./Route"
+import Menu from "./containers/Memu"
 
 export default {HomeRoute, Menu};

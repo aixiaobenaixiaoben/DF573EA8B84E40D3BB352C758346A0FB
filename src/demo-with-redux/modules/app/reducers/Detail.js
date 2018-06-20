@@ -1,7 +1,7 @@
 /** @flow */
-import {handleActions} from "redux-actions";
+import {handleActions} from "redux-actions"
 
-import {DETAIL_CLEAR, DETAIL_REQUEST, DETAIL_WATCHED, DETAIL_WISH} from "../constants";
+import {DETAIL_CLEAR, DETAIL_REQUEST, DETAIL_WATCHED, DETAIL_WISH} from "../Constants"
 
 
 type State = {

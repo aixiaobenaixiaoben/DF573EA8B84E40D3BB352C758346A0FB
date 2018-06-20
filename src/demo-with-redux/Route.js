@@ -1,9 +1,9 @@
 /** @flow */
-import React from "react";
-import {createBottomTabNavigator, createStackNavigator} from "react-navigation";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import React from "react"
+import {createBottomTabNavigator, createStackNavigator} from "react-navigation"
+import Ionicons from "react-native-vector-icons/Ionicons"
 
-import {app, home, ref} from "./modules";
+import {app, home, ref} from "./modules"
 
 
 const RootTab = createBottomTabNavigator(

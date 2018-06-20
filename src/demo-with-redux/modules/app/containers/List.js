@@ -1,11 +1,11 @@
 /** @flow */
-import React, {Component} from "react";
-import {FlatList} from "react-native";
-import {connect} from "react-redux";
-import PropTypes from "prop-types";
+import React, {Component} from "react"
+import {FlatList} from "react-native"
+import {connect} from "react-redux"
+import PropTypes from "prop-types"
 
-import ListItem from "../components/listItem";
-import * as actions from "../actions/list";
+import ListItem from "../components/ListItem"
+import * as actions from "../actions/List"
 
 
 class List extends Component<any, any> {
