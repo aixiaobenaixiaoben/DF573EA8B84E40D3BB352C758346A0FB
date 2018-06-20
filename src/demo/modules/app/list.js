@@ -1,8 +1,9 @@
 import React, {Component} from "react";
-import {FlatList} from "react-native";
+import {AsyncStorage, FlatList} from "react-native";
 import axios from "axios";
 import ListItem from "./listItem";
 
+const STORAGE_KEY = 'ASYNC_STORAGE_MOVIE'
 
 class List extends Component {
 
@@ -13,6 +14,25 @@ class List extends Component {
     };
   }
 
+  loadFromStorage = async () => {
+    try {
+      const movies = await AsyncStorage.getItem(STORAGE_KEY)
+      if (movies !== null) {
+        this.setState({movies: JSON.parse(movies)})
+      }
+    } catch (e) {
+      alert('Fail to load from AsyncStorage')
+    }
+  }
+
+  saveToStorage = async (movies) => {
+    try {
+      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(movies))
+    } catch (e) {
+      alert('Fail to save to AsyncStorage')
+    }
+  }
+
   componentDidMount(){
     axios.get('https://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city=上海')
       .then(response => {
@@ -21,9 +41,11 @@ class List extends Component {
           ...this.state,
           movies: response.data
         });
+        this.saveToStorage(response.data)
       })
       .catch(error => {
         alert(error.message);
+        this.loadFromStorage()
       });
   }
 
