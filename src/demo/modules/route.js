@@ -39,14 +39,13 @@ const RootStack = createStackNavigator(
   {
     RootTab: {
       screen: RootTab,
-      navigationOptions: {
-        title: 'Root',
-        headerBackTitle: null,
-      }
     },
     ...AppRoute,
     ...HomeRoute,
   },
+  {
+    headerMode: 'none',
+  }
 );
 
 export default RootStack;

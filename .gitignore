@@ -8,5 +8,7 @@
 /android/.gradle/
 /android/build/
 /android/app/build/
+/android/app/android-release.keystore
+/android/gradle.properties
 
 /ios/build/
