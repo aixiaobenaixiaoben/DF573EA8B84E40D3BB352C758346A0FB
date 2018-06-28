@@ -102,7 +102,7 @@ class Detail extends Component<any, any> {
         </ScrollView>
 
         <View style = {style.viewBottom}>
-          <TouchableOpacity style = {style.buyTouch} onPress = {() => this.props.navigation.goBack()}>
+          <TouchableOpacity style = {style.buyTouch} onPress = {() => this.props.navigation.pop()}>
             <Text style = {style.buyTouchText}>无法购票,返回列表</Text>
           </TouchableOpacity>
         </View>

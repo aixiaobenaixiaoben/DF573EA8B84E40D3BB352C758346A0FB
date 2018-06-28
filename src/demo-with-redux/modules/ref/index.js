@@ -1,5 +1,5 @@
 /** @flow */
 import RefRoute from "./Route"
-import Ref from "./containers/Ref"
+import RefHome from "./containers/Ref"
 
-export default {RefRoute, Ref};
+export default {RefRoute, RefHome};

@@ -5,29 +5,61 @@ import Ionicons from "react-native-vector-icons/Ionicons"
 
 import {app, home, ref} from "./modules"
 
+const AppHomeStack = createStackNavigator(
+  {
+    AppHome: {
+      screen: app.AppHome,
+      navigationOptions: {
+        title: '电影库',
+      }
+    },
+  },
+);
+
+const HomeHomeStack = createStackNavigator(
+  {
+    HomeHome: {
+      screen: home.HomeView,
+      navigationOptions: {
+        title: '音乐库',
+      }
+    },
+  },
+);
+
+const RefHomeStack = createStackNavigator(
+  {
+    RefHome: {
+      screen: ref.RefHome,
+      navigationOptions: {
+        title: 'ANT-DESIGN-RN',
+      }
+    },
+  },
+);
 
 const RootTab = createBottomTabNavigator(
   {
-    List: {
-      screen: app.List,
+    AppTab: {
+      screen: AppHomeStack,
       navigationOptions: {
-        title: '首页',
+        title: '电影',
         tabBarIcon: ({focused, tintColor}) => (
           <Ionicons name={`ios-american-football${focused ? '' : '-outline'}`} size={25} color={tintColor}/>
         ),
       }
     },
-    Menu: {
-      screen: home.Menu,
+    HomeTab: {
+      screen: HomeHomeStack,
       navigationOptions: {
-        title: '其它',
+        title: '音乐',
         tabBarIcon: ({focused, tintColor}) => (
           <Ionicons name={`ios-paper-plane${focused ? '' : '-outline'}`} size={25} color={tintColor}/>
         ),
       }
     },
-    Ref: {
-      screen: ref.Ref,
+    RefTab: {
+      screen: RefHomeStack,
       navigationOptions: {
         title: '🐜',
         tabBarIcon: ({focused, tintColor}) => (
@@ -47,11 +79,9 @@ const RootTab = createBottomTabNavigator(
 
 export default createStackNavigator(
   {
-    RootTab: {
-      screen: RootTab,
-    },
-    ...app.AppRoute,
-    ...home.HomeRoute,
+    RootTab: RootTab,
+    app: app.AppRoute,
+    home: home.HomeRoute,
     ...ref.RefRoute,
   },
   {
