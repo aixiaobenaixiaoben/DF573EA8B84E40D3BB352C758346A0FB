@@ -1,8 +1,9 @@
 /** @flow */
-//name of this modules
+
+/** name of this modules */
 export const NAME = 'app';
 
-//action types
+/** action types */
 export const LIST_REQUEST = `${NAME}/LIST_REQUEST`;
 
 export const DETAIL_REQUEST = `${NAME}/DETAIL_REQUEST`;

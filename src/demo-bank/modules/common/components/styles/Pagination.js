@@ -1,15 +1,16 @@
+/** @flow */
 import {StyleSheet} from "react-native"
-import {COLOR, COLOR_BACKGROUND, COLOR_BORDER, COLOR_FONT} from "../../Constants"
+import {COLOR, COLOR_WHITE, COLOR_BLACK_02, COLOR_BLACK_06} from "../../Constants"
 
 
 export default StyleSheet.create({
   container: {
     height: 80,
-    backgroundColor: COLOR_BACKGROUND,
+    backgroundColor: COLOR_WHITE,
   },
   up: {
     borderBottomWidth: 1,
-    borderBottomColor: COLOR_BORDER,
+    borderBottomColor: COLOR_BLACK_02,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -20,7 +21,7 @@ export default StyleSheet.create({
     paddingHorizontal: 10,
   },
   upText: {
-    color: COLOR_FONT,
+    color: COLOR_BLACK_06,
   },
   upNumber: {
     color: COLOR,

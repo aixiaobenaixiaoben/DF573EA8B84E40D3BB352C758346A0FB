@@ -18,7 +18,7 @@ export default class ResultExample extends React.Component<any, any> {
 
         <Text style={{ margin: 10, color: '#999' }}>Image source</Text>
         <Result
-          imgUrl={require('../../../../../img/apple.png')}
+          imgUrl={require('../../../../../assets/apple.png')}
           title="验证成功"
           message="所提交内容已成功完成验证"
         />
@@ -27,7 +27,7 @@ export default class ResultExample extends React.Component<any, any> {
         <Result
           img={
             <Image
-              source={require('../../../../../img/apple.png')}
+              source={require('../../../../../assets/apple.png')}
               style={{ width: 60, height: 60 }}
             />
           }
@@ -39,7 +39,7 @@ export default class ResultExample extends React.Component<any, any> {
         <Result
           img={
             <Image
-              source={require('../../../../../img/apple.png')}
+              source={require('../../../../../assets/apple.png')}
               style={{ width: 60, height: 60 }}
             />
           }

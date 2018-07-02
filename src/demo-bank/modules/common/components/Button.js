@@ -1,3 +1,4 @@
+/** @flow */
 import React, {Component} from "react"
 import {Text, TouchableOpacity, View} from "react-native"
 import PropTypes from "prop-types"
@@ -5,7 +6,7 @@ import PropTypes from "prop-types"
 import defaultStyle from "./styles/Button"
 
 
-class Button extends Component {
+class Button extends Component<any, any> {
 
   press = () => {
     this.props.onPress()
@@ -18,8 +19,8 @@ class Button extends Component {
       executing = false,
       executingText = '执行中',
       text = 'Button',
-      style = defaultStyle.touch,
-      textStyle = defaultStyle.touchText
+      style = {},
+      textStyle = {}
     } = this.props
 
     const title = executing ? executingText : text
@@ -28,8 +29,8 @@ class Button extends Component {
 
     return (
       <View>
-        <TouchableOpacity onPress={this.press} style={[style, disableStyle]} activeOpacity={0.6} disabled={disable}>
-          <Text style={textStyle}>{title}</Text>
+        <TouchableOpacity onPress={this.press} style={[defaultStyle.touch, style, disableStyle]} activeOpacity={0.6} disabled={disable}>
+          <Text style={[defaultStyle.touchText, textStyle]}>{title}</Text>
         </TouchableOpacity>
       </View>
     )

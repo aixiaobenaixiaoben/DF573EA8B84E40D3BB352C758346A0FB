@@ -1,3 +1,4 @@
+/** @flow */
 import React, {Component} from "react"
 import {Text, View} from "react-native"
 import PropTypes from "prop-types"
@@ -6,7 +7,7 @@ import style from "./styles/Pagination"
 import Button from "./Button"
 
 
-class Pagination extends Component {
+class Pagination extends Component<any, any> {
 
   prev = () => {
     const { current = 1 } = this.props

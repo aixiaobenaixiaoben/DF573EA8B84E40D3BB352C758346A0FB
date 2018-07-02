@@ -1,4 +1,5 @@
 /** @flow */
+import common from "./common"
 import app from "./app"
 import home from "./home"
 import ref from "./ref"
@@ -7,4 +8,4 @@ import life from "./life"
 import my from "./my"
 
 
-export {app, home, ref, fin, life, my};
+export {common, app, home, ref, fin, life, my};

@@ -1,5 +1,6 @@
 /** @flow */
-//name of this modules
+
+/** name of this modules */
 export const NAME = 'home';
 
 

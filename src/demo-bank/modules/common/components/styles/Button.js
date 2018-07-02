@@ -1,5 +1,6 @@
+/** @flow */
 import {StyleSheet} from "react-native"
-import {COLOR, COLOR_BACKGROUND, FONT_1} from "../../Constants"
+import {COLOR, COLOR_WHITE, FONT_SIZE_18} from "../../Constants"
 
 
 export default StyleSheet.create({
@@ -11,8 +12,8 @@ export default StyleSheet.create({
     backgroundColor: COLOR,
   },
   touchText: {
-    color: COLOR_BACKGROUND,
-    fontSize: FONT_1,
+    color: COLOR_WHITE,
+    fontSize: FONT_SIZE_18,
   },
   disable: {
     opacity: 0.6,

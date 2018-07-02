@@ -5,6 +5,8 @@ import Ionicons from "react-native-vector-icons/Ionicons"
 import MaterialIcon from "react-native-vector-icons/MaterialCommunityIcons"
 
 import {app, home, ref, fin, life, my} from "./modules"
+import StartView from "./modules/common/containers/Start"
+import GuideView from "./modules/common/containers/Guide"
 
 const AppHomeStack = createStackNavigator(
   {
@@ -141,6 +143,8 @@ const RootTab = createBottomTabNavigator(
 
 export default createStackNavigator(
   {
+    start: StartView,
+    guide: GuideView,
     RootTab: RootTab,
     app: app.AppRoute,
     home: home.HomeRoute,
