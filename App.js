@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Main from "./src/demo-with-redux";
+import Main from "./src/demo-bank";
 
 
 class Root extends Component{
