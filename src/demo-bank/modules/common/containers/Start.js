@@ -1,6 +1,6 @@
 /** @flow */
 import React, {Component} from "react"
-import {ImageBackground, View} from "react-native"
+import {Image, ImageBackground, View} from "react-native"
 import {NavigationActions, StackActions} from 'react-navigation'
 import {connect} from "react-redux"
 import PropTypes from "prop-types"
@@ -55,13 +55,14 @@ class Start extends Component<any, any> {
   render() {
     const { count } = this.state
     return (
-      <View>
-        <ImageBackground source = {require('../../../../../assets/4.png')}
-                         style = {style.imageBack}>
-
+      <View style={style.view}>
+        <ImageBackground source = {require('../../../../../assets/4.png')} style = {style.imageBack}>
           <Button style={style.button} text={`${count} | 跳过`} onPress={this.goHome}/>
-
         </ImageBackground>
+
+        <View style={style.bottom}>
+          <Image source = {require('../../../../../assets/5.png')} style = {style.bottomImage}/>
+        </View>
       </View>
     )
   }

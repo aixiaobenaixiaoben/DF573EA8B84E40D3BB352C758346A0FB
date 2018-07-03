@@ -1,6 +1,6 @@
 /** @flow */
 import React, {Component} from "react"
-import {Text, View} from 'react-native'
+import {Text, View, ViewPropTypes} from 'react-native'
 import PropTypes from "prop-types"
 
 import style from "./styles/IconBadge"
@@ -36,8 +36,8 @@ IconBadge.propTypes = {
   hidden: PropTypes.bool.isRequired,
   icon: PropTypes.element.isRequired,
   badge: PropTypes.string,
-  iconStyle: View.propTypes.style,
-  badgeStyle: View.propTypes.style,
+  iconStyle: ViewPropTypes.style,
+  badgeStyle: ViewPropTypes.style,
 }
 
 export default IconBadge;

@@ -1,6 +1,6 @@
 /** @flow */
 import React, {Component} from "react"
-import {Text, TouchableOpacity, View} from "react-native"
+import {Text, TouchableOpacity, View, ViewPropTypes} from "react-native"
 import PropTypes from "prop-types"
 
 import defaultStyle from "./styles/Button"
@@ -44,7 +44,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   executing: PropTypes.bool,
   executingText: PropTypes.string,
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
   textStyle: Text.propTypes.style,
 }
 
