@@ -4,10 +4,13 @@ import {createBottomTabNavigator, createStackNavigator} from "react-navigation"
 import Ionicons from "react-native-vector-icons/Ionicons"
 import MaterialIcon from "react-native-vector-icons/MaterialCommunityIcons"
 
-import {app, fin, home, life, my, ref} from "./modules"
+import {app, common, fin, home, life, my, ref} from "./modules"
 import StartView from "./modules/common/containers/Start"
 import GuideView from "./modules/common/containers/Guide"
 import TabBarBadge from "./modules/common/containers/TabBarBadge"
+import LoginView from "./modules/common/containers/Login/Login"
+import LoginOptionView from "./modules/common/containers/Login/LoginOption"
+import {COLOR_BLUE_SYS, COLOR_GRAY} from "./modules/common/Constants"
 
 const AppHomeStack = createStackNavigator(
   {
@@ -44,7 +47,7 @@ const RefHomeStack = createStackNavigator(
 
 const FinHomeStack = createStackNavigator(
   {
-    RefHome: {
+    FinHome: {
       screen: fin.FinMain,
       navigationOptions: {
         title: 'Fin',
@@ -55,7 +58,7 @@ const FinHomeStack = createStackNavigator(
 
 const LifeHomeStack = createStackNavigator(
   {
-    RefHome: {
+    LifeHome: {
       screen: life.LifeMain,
       navigationOptions: {
         title: 'Life',
@@ -66,11 +69,23 @@ const LifeHomeStack = createStackNavigator(
 
 const MyHomeStack = createStackNavigator(
   {
-    RefHome: {
+    MyHome: {
       screen: my.MyMain,
       navigationOptions: {
         title: 'My',
       }
+    },
+    MyLogin: {
+      screen: LoginView,
+      navigationOptions: {
+        header: null
+      }
+    },
+    MyLoginOption: {
+      screen: LoginOptionView,
+      navigationOptions: {
+        header: null
+      },
     },
   },
 );
@@ -140,8 +155,8 @@ const RootTab = createBottomTabNavigator(
   },
   {
     tabBarOptions: {
-      activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
+      activeTintColor: COLOR_BLUE_SYS,
+      inactiveTintColor: COLOR_GRAY,
     },
     lazy: true,
   }
@@ -158,6 +173,7 @@ export default createStackNavigator(
     fin: fin.FinRoute,
     life: life.LifeRoute,
     my: my.MyRoute,
+    register: common.CommonRegisterRoute,
   },
   {
     headerMode: 'none',
