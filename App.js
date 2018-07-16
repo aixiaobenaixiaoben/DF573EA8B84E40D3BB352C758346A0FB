@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Main from "./src/demo-bank";
+import Main from "./src/gesture";
 
 
 class Root extends Component{
