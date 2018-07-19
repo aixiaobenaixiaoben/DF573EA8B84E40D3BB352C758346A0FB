@@ -3,7 +3,7 @@ import {COLOR_BLUE_SYS, COLOR_BLUE_SYS_02, COLOR_BLUE_SYS_04, COLOR_GRAY} from "
 
 
 export default StyleSheet.create({
-  view: {
+  circle: {
     justifyContent: 'center',
     alignItems: 'center',
     width: 64,
@@ -12,7 +12,7 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: COLOR_BLUE_SYS_04,
   },
-  viewLined: {
+  circleLined: {
     backgroundColor: COLOR_BLUE_SYS_02,
   },
   center: {

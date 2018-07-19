@@ -17,24 +17,26 @@ class Dot extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.ref.measure( (frameX, frameY, width, height, pageX, pageY) => {
-        const radius = 0.5 * width
-        const center = {x: frameX + radius, y: frameY + radius}
-        const { id, reportCenter } = this.props
-        reportCenter(id, center, radius)
-      })
-    }, 0)
+    const { id, reportCenter } = this.props
+    if (reportCenter !== undefined) {
+      setTimeout(() => {
+        this.ref.measure( (frameX, frameY, width, height, pageX, pageY) => {
+          const radius = 0.5 * width
+          const center = {x: frameX + radius, y: frameY + radius}
+          reportCenter(id, center, radius)
+        })
+      }, 0)
+    }
   }
 
   render() {
-    const { lined = false } = this.props
-    const viewLinedStyle = lined ? style.viewLined : {}
+    const { lined = false, circleStyle, centerStyle } = this.props
+    const circleLinedStyle = lined ? style.circleLined : {}
     const centerLinedStyle = lined ? style.centerLined : {}
 
     return (
-      <View style={[style.view, viewLinedStyle]} ref={view => this.ref = view}>
-        <View style={[style.center, centerLinedStyle]}>
+      <View style={[style.circle, circleLinedStyle, circleStyle]} ref={view => this.ref = view}>
+        <View style={[style.center, centerLinedStyle, centerStyle]}>
         </View>
       </View>
     )
