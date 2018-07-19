@@ -30,13 +30,13 @@ class Dot extends Component {
   }
 
   render() {
-    const { lined = false, circleStyle, centerStyle } = this.props
-    const circleLinedStyle = lined ? style.circleLined : {}
-    const centerLinedStyle = lined ? style.centerLined : {}
+    const { lined = false, circleStyle, centerStyle, linedCircleStyle, linedCenterStyle } = this.props
+    const circleLinedStyle = lined ? [style.circleLined, linedCircleStyle] : []
+    const centerLinedStyle = lined ? [style.centerLined, linedCenterStyle] : []
 
     return (
-      <View style={[style.circle, circleLinedStyle, circleStyle]} ref={view => this.ref = view}>
-        <View style={[style.center, centerLinedStyle, centerStyle]}>
+      <View style={[style.circle, circleStyle, ...circleLinedStyle]} ref={view => this.ref = view}>
+        <View style={[style.center, centerStyle, ...centerLinedStyle]}>
         </View>
       </View>
     )

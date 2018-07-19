@@ -16,9 +16,13 @@ class Pad extends Component {
 
   render() {
     const {
+      sequence = '',
       width = DIMENSION_PAD_WIDTH,
       height = DIMENSION_PAD_HEIGHT,
-      sequence = '',
+      circleStyle,
+      centerStyle,
+      linedCircleStyle,
+      linedCenterStyle,
     } = this.props
 
     let points = {}
@@ -26,21 +30,25 @@ class Pad extends Component {
 
     return (
       <View style={{width: width, height: height}}>
+
         <View style={style.row}>
-          <Dot lined={points.A} circleStyle={style.circle} centerStyle={style.center}/>
-          <Dot lined={points.B} circleStyle={style.circle} centerStyle={style.center}/>
-          <Dot lined={points.C} circleStyle={style.circle} centerStyle={style.center}/>
+          <Dot lined={points.A} circleStyle={[style.circle, circleStyle]} centerStyle={[style.center, centerStyle]} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot lined={points.B} circleStyle={[style.circle, circleStyle]} centerStyle={[style.center, centerStyle]} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot lined={points.C} circleStyle={[style.circle, circleStyle]} centerStyle={[style.center, centerStyle]} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
         </View>
+
         <View style={style.row}>
-          <Dot lined={points.D} circleStyle={style.circle} centerStyle={style.center}/>
-          <Dot lined={points.E} circleStyle={style.circle} centerStyle={style.center}/>
-          <Dot lined={points.F} circleStyle={style.circle} centerStyle={style.center}/>
+          <Dot lined={points.D} circleStyle={[style.circle, circleStyle]} centerStyle={[style.center, centerStyle]} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot lined={points.E} circleStyle={[style.circle, circleStyle]} centerStyle={[style.center, centerStyle]} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot lined={points.F} circleStyle={[style.circle, circleStyle]} centerStyle={[style.center, centerStyle]} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
         </View>
+
         <View style={style.row}>
-          <Dot lined={points.G} circleStyle={style.circle} centerStyle={style.center}/>
-          <Dot lined={points.H} circleStyle={style.circle} centerStyle={style.center}/>
-          <Dot lined={points.I} circleStyle={style.circle} centerStyle={style.center}/>
+          <Dot lined={points.G} circleStyle={[style.circle, circleStyle]} centerStyle={[style.center, centerStyle]} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot lined={points.H} circleStyle={[style.circle, circleStyle]} centerStyle={[style.center, centerStyle]} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot lined={points.I} circleStyle={[style.circle, circleStyle]} centerStyle={[style.center, centerStyle]} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
         </View>
+
       </View>
     )
   }

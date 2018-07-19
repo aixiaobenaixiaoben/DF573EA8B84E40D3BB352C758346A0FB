@@ -92,7 +92,16 @@ class Board extends Component {
   }
 
   onFinishDraw = () => {
+    let {
+      clearTime = CLEAR_TIME,
+      onRelease = (seq) => {},
+      onClear = (seq) => {},
+    } = this.props
+    onRelease(this.sequence)
+
     setTimeout(() => {
+      onClear(this.sequence)
+
       let origin = {x: 0, y: 0}
       const { points } = this.state
       for (let id in points) {
@@ -105,7 +114,7 @@ class Board extends Component {
         lines: [],
       })
       this.sequence = ''
-    }, CLEAR_TIME)
+    }, clearTime)
   }
 
   renderLines = () => {
@@ -113,7 +122,7 @@ class Board extends Component {
     const { lines } = this.state
     for (let line of lines) {
       if (line.end !== undefined) {
-        elements.push(<Line tail key={line.id} start={line.start} end={line.end}/>)
+        elements.push(<Line tail key={line.id} start={line.start} end={line.end} style={this.props.lineStyle}/>)
       }
     }
     return elements
@@ -136,30 +145,33 @@ class Board extends Component {
   }
 
   render() {
+    const { lineStyle, circleStyle, centerStyle, linedCircleStyle, linedCenterStyle } = this.props
     const { A , B, C, D, E, F, G, H, I }  = this.state.points
-    const propStyle = {
-      width: this.width,
-      height: this.height,
-    }
+
     return (
-      <View {...this._panResponder.panHandlers} style={[propStyle]} ref={view => this.ref = view}>
+      <View {...this._panResponder.panHandlers} style={{ width: this.width, height: this.height }} ref={view => this.ref = view}>
+
         { this.renderLines() }
-        <Line start={this.state.start} end={this.state.current}/>
+        <Line start={this.state.start} end={this.state.current} style={lineStyle}/>
+
         <View style={style.row}>
-          <Dot id='A' lined={A.lined} reportCenter={this.reportCenter}/>
-          <Dot id='B' lined={B.lined} reportCenter={this.reportCenter}/>
-          <Dot id='C' lined={C.lined} reportCenter={this.reportCenter}/>
+          <Dot id='A' lined={A.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot id='B' lined={B.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot id='C' lined={C.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
         </View>
+
         <View style={style.row}>
-          <Dot id='D' lined={D.lined} reportCenter={this.reportCenter}/>
-          <Dot id='E' lined={E.lined} reportCenter={this.reportCenter}/>
-          <Dot id='F' lined={F.lined} reportCenter={this.reportCenter}/>
+          <Dot id='D' lined={D.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot id='E' lined={E.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot id='F' lined={F.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
         </View>
+
         <View style={style.row}>
-          <Dot id='G' lined={G.lined} reportCenter={this.reportCenter}/>
-          <Dot id='H' lined={H.lined} reportCenter={this.reportCenter}/>
-          <Dot id='I' lined={I.lined} reportCenter={this.reportCenter}/>
+          <Dot id='G' lined={G.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot id='H' lined={H.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot id='I' lined={I.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
         </View>
+
       </View>
     )
   }

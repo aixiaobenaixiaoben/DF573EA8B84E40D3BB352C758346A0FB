@@ -13,7 +13,7 @@ class Line extends Component {
   }
 
   render() {
-    const { start, end } = this.props
+    const { start, end, style: propStyle } = this.props
     const len = distanceOfPoint(start, end)
     const angle = angleOfPoint(start, end)
     const vector = vectorOfPoint(start, end)
@@ -30,7 +30,7 @@ class Line extends Component {
     }
 
     return (
-      <View style={[style.view, lineStyle]}>
+      <View style={[style.view, lineStyle, propStyle]}>
       </View>
     )
   }
