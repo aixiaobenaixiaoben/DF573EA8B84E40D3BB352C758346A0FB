@@ -37,13 +37,14 @@ class Board extends Component {
       onMoveShouldSetPanResponder: (evt, gestureState) => true,
       onStartShouldSetPanResponderCapture: (evt, gestureState) => false,
       onMoveShouldSetPanResponderCapture: (evt, gestureState) => false,
-      onPanResponderGrant: (evt, gestureState) => {},
+      onPanResponderGrant: (evt, gestureState) => {
+        this.onGrant()
+      },
       onPanResponderMove: (evt, gestureState) => {
         this.onMove(evt)
       },
       onPanResponderRelease: (evt, gestureState) => {
-        this.setState({current: this.state.start})
-        this.onFinishDraw()
+        this.onRelease()
       },
     })
   }
@@ -55,6 +56,11 @@ class Board extends Component {
         this.pageY = pageY
       })
     }, 0)
+  }
+
+  onGrant = () => {
+    const { onTouch = () => {}} = this.props
+    onTouch()
   }
 
   onMove = (event) => {
@@ -91,7 +97,9 @@ class Board extends Component {
     }
   }
 
-  onFinishDraw = () => {
+  onRelease = () => {
+    this.setState({current: this.state.start})
+
     let {
       clearTime = CLEAR_TIME,
       onRelease = (seq) => {},

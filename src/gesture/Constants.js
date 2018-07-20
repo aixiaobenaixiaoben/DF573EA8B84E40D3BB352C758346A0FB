@@ -17,8 +17,8 @@ export type Point = {
 /** dimension */
 export const DIMENSION_WIDTH = Math.min(width, height) - 40
 export const DIMENSION_HEIGHT = Math.min(width, height) - 40
-export const DIMENSION_PAD_WIDTH = 60
-export const DIMENSION_PAD_HEIGHT = 60
+export const DIMENSION_PAD_WIDTH = 80
+export const DIMENSION_PAD_HEIGHT = 80
 
 /** reset duration */
 export const CLEAR_TIME = 200
