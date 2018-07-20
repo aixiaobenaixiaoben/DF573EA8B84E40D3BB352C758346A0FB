@@ -1,5 +1,6 @@
 import React, {Component} from "react"
-import {View} from "react-native"
+import {View, ViewPropTypes} from "react-native"
+import PropTypes from "prop-types"
 
 import style from "./styles/Line"
 import {angleOfPoint, distanceOfPoint, vectorOfPoint} from "./Utils"
@@ -8,12 +9,12 @@ import {angleOfPoint, distanceOfPoint, vectorOfPoint} from "./Utils"
 class Line extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
-    const { tail } = nextProps
+    const {tail} = nextProps
     return !tail
   }
 
   render() {
-    const { start, end, style: propStyle } = this.props
+    const {start, end, style: propStyle} = this.props
     const len = distanceOfPoint(start, end)
     const angle = angleOfPoint(start, end)
     const vector = vectorOfPoint(start, end)
@@ -34,6 +35,18 @@ class Line extends Component {
       </View>
     )
   }
+}
+
+Line.propTypes = {
+  start: PropTypes.shape({
+    x: PropTypes.number,
+    y: PropTypes.number,
+  }),
+  end: PropTypes.shape({
+    x: PropTypes.number,
+    y: PropTypes.number,
+  }),
+  style: ViewPropTypes.style,
 }
 
 export default Line

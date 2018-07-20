@@ -1,5 +1,6 @@
 import React, {Component} from "react"
-import {PanResponder, View} from "react-native"
+import {PanResponder, View, ViewPropTypes} from "react-native"
+import PropTypes from "prop-types"
 
 import Line from "./Line"
 import style from "./styles/Board"
@@ -28,7 +29,7 @@ class Board extends Component {
   constructor(props: any) {
     super(props)
 
-    const { width = DIMENSION_WIDTH, height = DIMENSION_HEIGHT} = this.props
+    const {width = DIMENSION_WIDTH, height = DIMENSION_HEIGHT} = this.props
     this.width = width
     this.height = height
 
@@ -51,7 +52,7 @@ class Board extends Component {
 
   componentDidMount() {
     setTimeout(() => {
-      this.ref.measure( (frameX, frameY, width, height, pageX, pageY) => {
+      this.ref.measure((frameX, frameY, width, height, pageX, pageY) => {
         this.pageX = pageX
         this.pageY = pageY
       })
@@ -72,7 +73,7 @@ class Board extends Component {
       return
     }
 
-    let { start, points, lines } = this.state
+    let {start, points, lines} = this.state
     for (let id in points) {
       let point = points[id]
       if (!point.lined) {
@@ -111,7 +112,7 @@ class Board extends Component {
       onClear(this.sequence)
 
       let origin = {x: 0, y: 0}
-      const { points } = this.state
+      const {points} = this.state
       for (let id in points) {
         points[id].lined = false
       }
@@ -127,7 +128,7 @@ class Board extends Component {
 
   renderLines = () => {
     let elements = []
-    const { lines } = this.state
+    const {lines} = this.state
     for (let line of lines) {
       if (line.end !== undefined) {
         elements.push(<Line tail key={line.id} start={line.start} end={line.end} style={this.props.lineStyle}/>)
@@ -143,7 +144,7 @@ class Board extends Component {
     if (['G', 'H', 'I'].indexOf(id) !== -1) {
       center.y += this.height * 2 / 3
     }
-    const { points } = this.state
+    const {points} = this.state
     points[id] = {
       center: center,
       radius: radius,
@@ -153,36 +154,67 @@ class Board extends Component {
   }
 
   render() {
-    const { lineStyle, circleStyle, centerStyle, linedCircleStyle, linedCenterStyle } = this.props
-    const { A , B, C, D, E, F, G, H, I }  = this.state.points
+    const {lineStyle, circleStyle, centerStyle, linedCircleStyle, linedCenterStyle} = this.props
+    const {A, B, C, D, E, F, G, H, I} = this.state.points
 
     return (
-      <View {...this._panResponder.panHandlers} style={{ width: this.width, height: this.height }} ref={view => this.ref = view}>
+      <View {...this._panResponder.panHandlers} style={{width: this.width, height: this.height}}
+            ref={view => this.ref = view}>
 
-        { this.renderLines() }
+        {this.renderLines()}
         <Line start={this.state.start} end={this.state.current} style={lineStyle}/>
 
         <View style={style.row}>
-          <Dot id='A' lined={A.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
-          <Dot id='B' lined={B.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
-          <Dot id='C' lined={C.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot id='A' lined={A.lined} reportCenter={this.reportCenter} circleStyle={circleStyle}
+               centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot id='B' lined={B.lined} reportCenter={this.reportCenter} circleStyle={circleStyle}
+               centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot id='C' lined={C.lined} reportCenter={this.reportCenter} circleStyle={circleStyle}
+               centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
         </View>
 
         <View style={style.row}>
-          <Dot id='D' lined={D.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
-          <Dot id='E' lined={E.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
-          <Dot id='F' lined={F.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot id='D' lined={D.lined} reportCenter={this.reportCenter} circleStyle={circleStyle}
+               centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot id='E' lined={E.lined} reportCenter={this.reportCenter} circleStyle={circleStyle}
+               centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot id='F' lined={F.lined} reportCenter={this.reportCenter} circleStyle={circleStyle}
+               centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
         </View>
 
         <View style={style.row}>
-          <Dot id='G' lined={G.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
-          <Dot id='H' lined={H.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
-          <Dot id='I' lined={I.lined} reportCenter={this.reportCenter} circleStyle={circleStyle} centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot id='G' lined={G.lined} reportCenter={this.reportCenter} circleStyle={circleStyle}
+               centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot id='H' lined={H.lined} reportCenter={this.reportCenter} circleStyle={circleStyle}
+               centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
+          <Dot id='I' lined={I.lined} reportCenter={this.reportCenter} circleStyle={circleStyle}
+               centerStyle={centerStyle} linedCircleStyle={linedCircleStyle} linedCenterStyle={linedCenterStyle}/>
         </View>
 
       </View>
     )
   }
+}
+
+Board.proptypes = {
+  width: PropTypes.number,
+  height: PropTypes.number,
+  clearTime: PropTypes.number,
+  lineStyle: ViewPropTypes.style,
+  circleStyle: ViewPropTypes.style,
+  centerStyle: ViewPropTypes.style,
+  linedCircleStyle: ViewPropTypes.style,
+  linedCenterStyle: ViewPropTypes.style,
+
+  onTouch: PropTypes.func,
+  onRelease: PropTypes.func,
+  onClear: PropTypes.func,
+}
+
+Board.defaultProps = {
+  width: DIMENSION_WIDTH,
+  height: DIMENSION_HEIGHT,
+  clearTime: CLEAR_TIME,
 }
 
 export default Board
