@@ -2,19 +2,28 @@ import React, {Component} from "react"
 import {View, ViewPropTypes} from "react-native"
 import PropTypes from "prop-types"
 
-import style from "./styles/Dot"
+import style from "../styles/Dot"
 
 
 class Dot extends Component {
 
   ref
   lined = false
+  linedCircleStyle
+  linedCenterStyle
 
   shouldComponentUpdate(nextProps, nextState) {
-    const {lined = false} = nextProps
+    const {lined = false, linedCircleStyle, linedCenterStyle} = nextProps
     const oldLined = this.lined
     this.lined = lined
-    return lined !== oldLined
+
+    const oldLinedCircleStyle = this.linedCircleStyle
+    this.linedCircleStyle = linedCircleStyle
+
+    const oldLinedCenterStyle = this.linedCenterStyle
+    this.linedCenterStyle = linedCenterStyle
+
+    return lined !== oldLined || linedCircleStyle !== oldLinedCircleStyle || linedCenterStyle !== oldLinedCenterStyle
   }
 
   componentDidMount() {
