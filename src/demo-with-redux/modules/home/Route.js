@@ -5,7 +5,7 @@ import Detail3 from "./containers/Detail3"
 import {createStackNavigator} from "react-navigation"
 
 
-const HomeStack = createStackNavigator(
+export const HomeRoute = createStackNavigator(
   {
     HomeDetail1: {
       screen: Detail1,
@@ -26,15 +26,4 @@ const HomeStack = createStackNavigator(
       }
     },
   }
-);
-
-const MainStack = createStackNavigator(
-  {
-    Home: HomeStack,
-  },
-  {
-    headerMode: 'none',
-  }
-);
-
-export default MainStack;
+)

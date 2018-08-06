@@ -1,7 +1,7 @@
 /** @flow */
-import AppRoute from "./Route"
-import AppHome from "./containers/List"
 import {NAME} from "./Constants"
 import reducer from "./reducers"
+import AppHome from "./containers/List"
+import {MovieRoute} from "./Route"
 
-export default {AppRoute, AppHome, NAME, reducer};
+export default {NAME, reducer, AppHome, MovieRoute};

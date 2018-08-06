@@ -3,7 +3,7 @@ import Detail from "./containers/Detail"
 import {createStackNavigator} from "react-navigation"
 
 
-const MovieStack = createStackNavigator(
+export const MovieRoute = createStackNavigator(
   {
     AppDetail: {
       screen: Detail,
@@ -13,14 +13,3 @@ const MovieStack = createStackNavigator(
     },
   }
 );
-
-const MainStack = createStackNavigator(
-  {
-    Movie: MovieStack,
-  },
-  {
-    headerMode: 'none',
-  }
-);
-
-export default MainStack;

@@ -80,7 +80,7 @@ const RootTab = createBottomTabNavigator(
 export default createStackNavigator(
   {
     RootTab: RootTab,
-    app: app.AppRoute,
+    app: app.MovieRoute,
     home: home.HomeRoute,
     ...ref.RefRoute,
   },

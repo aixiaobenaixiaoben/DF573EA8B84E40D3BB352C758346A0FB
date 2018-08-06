@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Main from "./src/gesture/GestureDemo";
+import Main from "./src/demo-with-redux";
 
 
 class Root extends Component{

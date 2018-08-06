@@ -1,5 +1,5 @@
 /** @flow */
-import HomeRoute from "./Route"
 import HomeView from "./containers/Memu"
+import {HomeRoute} from "./Route"
 
-export default {HomeRoute, HomeView};
+export default {HomeRoute, HomeView}
