@@ -40,21 +40,21 @@ const RefHomeStack = createStackNavigator(
 
 const RootTab = createBottomTabNavigator(
   {
+    HomeTab: {
+      screen: HomeHomeStack,
+      navigationOptions: {
+        title: '首页',
+        tabBarIcon: ({focused, tintColor}) => (
+          <Ionicons name={`ios-paper-plane${focused ? '' : '-outline'}`} size={25} color={tintColor}/>
+        ),
+      }
+    },
     AppTab: {
       screen: AppHomeStack,
       navigationOptions: {
         title: '电影',
         tabBarIcon: ({focused, tintColor}) => (
           <Ionicons name={`ios-american-football${focused ? '' : '-outline'}`} size={25} color={tintColor}/>
-        ),
-      }
-    },
-    HomeTab: {
-      screen: HomeHomeStack,
-      navigationOptions: {
-        title: '音乐',
-        tabBarIcon: ({focused, tintColor}) => (
-          <Ionicons name={`ios-paper-plane${focused ? '' : '-outline'}`} size={25} color={tintColor}/>
         ),
       }
     },
