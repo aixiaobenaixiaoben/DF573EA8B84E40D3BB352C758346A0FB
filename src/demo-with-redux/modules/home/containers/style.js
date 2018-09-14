@@ -1,5 +1,9 @@
 import {StyleSheet} from "react-native"
 
 export default StyleSheet.create({
-  view: {},
+  input: {
+    borderWidth: 1,
+    borderColor: 'red',
+    margin: 20,
+  },
 })

@@ -1,6 +1,6 @@
 /** @flow */
 import React, {Component} from "react"
-import {View} from "react-native"
+import {ScrollView, TextInput} from "react-native"
 import style from "./style"
 import SecureTextInput from "./SecureTextInput"
 
@@ -16,7 +16,7 @@ class Menu extends Component<any, any> {
     const {a, b} = this.state
 
     return (
-      <View style={style.view}>
+      <ScrollView keyboardShouldPersistTaps='handled'>
 
         <SecureTextInput value={a} placeholder='请输入手机号'
                          style={{marginHorizontal: 20}}
@@ -26,7 +26,8 @@ class Menu extends Component<any, any> {
                          style={{marginHorizontal: 20}}
                          onChangeText={(value) => this.setState({b: value})}/>
 
-      </View>
+        <TextInput style={style.input}/>
+      </ScrollView>
     )
   }
 }
