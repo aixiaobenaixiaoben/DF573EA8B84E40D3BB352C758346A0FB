@@ -5,6 +5,7 @@ import { PersistGate } from "redux-persist/integration/react"
 
 import createStore from './createStore'
 import Root from "./Route"
+import Keyboard from "./modules/common/containers/Keyboard"
 
 const { store, persistor } = createStore();
 
@@ -14,6 +15,7 @@ const Main = () => {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <Root/>
+        <Keyboard/>
       </PersistGate>
     </Provider>
   )
