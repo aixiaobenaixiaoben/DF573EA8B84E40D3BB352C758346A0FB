@@ -24,7 +24,11 @@ class SecureTextInput extends Component<any, any> {
     }
     /** 有焦点并获得键盘输入 */
     if (this.props.inputID === nextProps.keyboardInputID && nextProps.value !== nextProps.keyboardOutput) {
-      this.props.onChangeText(nextProps.keyboardOutput)
+      if (nextProps.keyboardOutput.length <= this.props.maxLength) {
+        this.props.onChangeText(nextProps.keyboardOutput)
+      } else {
+        this.focus()
+      }
       return false
     }
     return true
@@ -59,9 +63,13 @@ class SecureTextInput extends Component<any, any> {
         <View style={[style.inputCursor, focus && {backgroundColor: 'blue'}]}/>
         <Text style={style.inputPlaceholder}>{value.length === 0 && placeholder}</Text>
         <View style={style.inputFill}/>
+
+        {value.length > 0 &&
         <TouchableOpacity onPress={this.clear}>
-          <Ionicons name='ios-close-circle' size={20} color='#8C8C8C' style={{paddingTop: 3}}/>
+          <Ionicons name='md-close-circle' size={18} color='#B0B0B0' style={{paddingTop: 3}}/>
         </TouchableOpacity>
+        }
+
       </TouchableOpacity>
     )
   }
