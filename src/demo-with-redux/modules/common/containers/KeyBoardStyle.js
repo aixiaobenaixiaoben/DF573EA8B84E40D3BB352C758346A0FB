@@ -1,6 +1,6 @@
 import {Dimensions, StyleSheet} from "react-native"
 
-const {width} = Dimensions.get('window')
+const {width, height} = Dimensions.get('window')
 const keyWidth = 0.1 * (width - 66)
 
 export default StyleSheet.create({
@@ -9,6 +9,7 @@ export default StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     width: width,
+    paddingBottom: height >= 800 ? 30 : 0,
   },
   keyboardTitle: {
     flexDirection: 'row',
