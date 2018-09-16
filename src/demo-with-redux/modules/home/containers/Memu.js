@@ -18,7 +18,7 @@ class Menu extends Component<any, any> {
     return (
       <ScrollView keyboardShouldPersistTaps='handled'>
 
-        <SecureTextInput inputID='HOME-MENU-INPUT-MOBILE' maxLength={11}
+        <SecureTextInput inputID='HOME-MENU-INPUT-MOBILE' maxLength={11} isDigit
                          placeholder='请输入手机号' style={{marginHorizontal: 20}}
                          value={a} onChangeText={(value) => this.setState({a: value})}/>
 

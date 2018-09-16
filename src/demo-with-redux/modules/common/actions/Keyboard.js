@@ -6,11 +6,12 @@ export type Action = {
   payload?: Object,
 }
 
-export const show = (inputID: string, output: string = ''): Action => {
+export const show = (inputID: string, output: string = '', isDigit: boolean = false): Action => {
   return {
     type: KEYBOARD_SHOW,
     payload: {
       inputID,
+      isDigit,
       output,
     }
   }

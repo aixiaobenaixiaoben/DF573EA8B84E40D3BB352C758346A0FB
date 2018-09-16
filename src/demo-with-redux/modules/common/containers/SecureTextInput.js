@@ -35,7 +35,8 @@ class SecureTextInput extends Component<any, any> {
   }
 
   focus = () => {
-    this.props.showKeyboard(this.props.inputID, this.props.value)
+    const {inputID, value, isDigit} = this.props
+    this.props.showKeyboard(inputID, value, isDigit)
   }
 
   clear = () => {
@@ -81,7 +82,7 @@ export default connect(
     keyboardInputID: state.common.keyboard.inputID,
   }),
   dispatch => ({
-    showKeyboard: (inputID, output) => dispatch(actions.show(inputID, output)),
+    showKeyboard: (inputID, output, isDigit) => dispatch(actions.show(inputID, output, isDigit)),
     clearKeyboard: () => dispatch(actions.clear()),
   })
 )(SecureTextInput)

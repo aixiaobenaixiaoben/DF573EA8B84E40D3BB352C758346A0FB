@@ -6,12 +6,14 @@ import {KEYBOARD_CLEAR, KEYBOARD_DELETE, KEYBOARD_HIDE, KEYBOARD_PRESS, KEYBOARD
 
 type State = {
   visible: boolean,
+  isDigit: boolean,
   inputID: string,
   output: string,
 }
 
 const initialState: State = {
   visible: false,
+  isDigit: false,
   inputID: '',
   output: '',
 }
@@ -19,11 +21,12 @@ const initialState: State = {
 export default handleActions(
   {
     [KEYBOARD_SHOW]: (state: State, action) => {
-      const {inputID, output} = action.payload
+      const {inputID, isDigit, output} = action.payload
       return {
         ...state,
         visible: true,
         inputID,
+        isDigit,
         output,
       }
     },
@@ -32,6 +35,7 @@ export default handleActions(
         ...state,
         visible: false,
         inputID: '',
+        isDigit: false,
         output: '',
       }
     },

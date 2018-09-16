@@ -56,10 +56,15 @@ class Keyboard extends Component<any, any> {
   shouldComponentUpdate(nextProps) {
     if (!this.props.visible && nextProps.visible) {
       SysKeyboard.dismiss()
+      /** 以数字键盘展开 */
       if (this.state.keyboardIndex !== 0) {
         this.setState({keyboardIndex: 0})
         return false
       }
+    }
+    if (nextProps.isDigit && this.state.keyboardIndex !== 0) {
+      this.setState({keyboardIndex: 0})
+      return false
     }
     return true
   }
@@ -74,7 +79,11 @@ class Keyboard extends Component<any, any> {
     if (key === '123') {
       this.setState({keyboardIndex: 0})
     } else if (key === 'ABC') {
-      this.setState({keyboardIndex: 1})
+      if (this.props.isDigit && this.state.keyboardIndex === 0) {
+        this.props.hide()
+      } else {
+        this.setState({keyboardIndex: 1})
+      }
     } else if (key === 'up') {
       this.setState({keyboardIndex: 2})
     } else if (key === 'UP') {
@@ -124,6 +133,8 @@ class Keyboard extends Component<any, any> {
     }
     if (key === 'SPACE') {
       key = ''
+    } else if (key === 'ABC' && this.props.isDigit && keyboardIndex === 0) {
+      key = '完成'
     }
     return <Text style={keyTextStyle}>{key}</Text>
   }
@@ -166,7 +177,8 @@ class Keyboard extends Component<any, any> {
   }
 
   render() {
-    if (!this.props.visible) {
+    const {visible, isDigit} = this.props
+    if (!visible) {
       return <View/>
     }
 
@@ -193,11 +205,15 @@ class Keyboard extends Component<any, any> {
       <View style={style.keyboard}>
 
         <View style={style.keyboardTitle}>
+          {!isDigit &&
           <Text style={style.keyboardTitleLeft}/>
+          }
           <Text style={style.keyboardTitleMiddle}>金斗云安全输入</Text>
+          {!isDigit &&
           <TouchableOpacity onPress={this.props.hide}>
             <Text style={style.keyboardTitleRight}>完成</Text>
           </TouchableOpacity>
+          }
         </View>
 
         <View style={row0Style}>
@@ -224,6 +240,7 @@ class Keyboard extends Component<any, any> {
 export default connect(
   state => ({
     visible: state.common.keyboard.visible,
+    isDigit: state.common.keyboard.isDigit,
   }),
   dispatch => ({
     hide: () => dispatch(actions.hide()),
