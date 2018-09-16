@@ -1,6 +1,6 @@
 /** @flow */
 import React, {Component} from "react"
-import {Text, TouchableOpacity, View} from "react-native"
+import {Keyboard as SysKeyboard, Text, TouchableOpacity, View} from "react-native"
 import Feather from "react-native-vector-icons/Feather"
 import Material from "react-native-vector-icons/MaterialCommunityIcons"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
@@ -39,8 +39,35 @@ class Keyboard extends Component<any, any> {
     pressKey: '',
   }
 
+  keyboardWillShowListener: Object
+
   componentWillMount() {
     this.props.hide()
+  }
+
+  componentDidMount() {
+    this.keyboardWillShowListener = SysKeyboard.addListener('keyboardWillShow', this.hide)
+  }
+
+  componentWillUnmount() {
+    this.keyboardWillShowListener.remove()
+  }
+
+  shouldComponentUpdate(nextProps) {
+    if (!this.props.visible && nextProps.visible) {
+      SysKeyboard.dismiss()
+      if (this.state.keyboardIndex !== 0) {
+        this.setState({keyboardIndex: 0})
+        return false
+      }
+    }
+    return true
+  }
+
+  hide = () => {
+    if (this.props.visible) {
+      this.props.hide()
+    }
   }
 
   press = (key: string) => {
