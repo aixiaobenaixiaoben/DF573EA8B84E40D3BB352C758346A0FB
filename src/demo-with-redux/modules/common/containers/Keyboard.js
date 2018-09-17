@@ -89,7 +89,9 @@ class Keyboard extends Component<any, any> {
     } else if (key === 'UP') {
       this.setState({keyboardIndex: 1})
     } else if (key === '#+=') {
-      this.setState({keyboardIndex: 3})
+      /** 暂时不使用符号键盘 */
+      this.props.hide()
+      // this.setState({keyboardIndex: 3})
     } else if (key === 'DELETE') {
       this.props.deleteKey()
     } else if (key === 'SPACE') {
@@ -101,29 +103,21 @@ class Keyboard extends Component<any, any> {
 
   getKeyElement = (key: string) => {
     const {keyboardIndex, pressKey} = this.state
-    if (keyboardIndex === 0 && key === 'DELETE') {
+    if (key === 'DELETE') {
       return key === pressKey
-        ? <MaterialIcons name='backspace' size={28} color='#FFFFFF' style={{paddingTop: 2}}/>
-        : <Feather name='delete' size={28} color='#FFFFFF'/>
-    }
-    if ((keyboardIndex === 1 || keyboardIndex === 2 || keyboardIndex === 3) && key === 'DELETE') {
-      return key === pressKey
-        ? <MaterialIcons name='backspace' size={24} color='#FFFFFF' style={{paddingTop: 5}}/>
-        : <Feather name='delete' size={24} color='#FFFFFF' style={{paddingTop: 5}}/>
+        ? <MaterialIcons name='backspace' size={24} color='#FFFFFF'/>
+        : <Feather name='delete' size={24} color='#FFFFFF'/>
     }
     if (key === 'up') {
-      return <Material name='apple-keyboard-shift' size={32} color='#FFFFFF' style={{paddingTop: 7}}/>
+      return <Material name='apple-keyboard-shift' size={28} color='#FFFFFF'/>
     }
     if (key === 'UP') {
-      return <Entypo name='arrow-bold-up' size={32} color='#FFFFFF' style={{paddingTop: 5}}/>
+      return <Entypo name='arrow-bold-up' size={28} color='#FFFFFF'/>
     }
 
     let keyTextStyle = [style.keyText]
     if (keyboardIndex === 0) {
       keyTextStyle = [...keyTextStyle, style.keyTextBold]
-    }
-    if (key === pressKey) {
-      keyTextStyle = [...keyTextStyle, style.keyPressText]
     }
     if (key === 'ABC' || key === '123' || key === '#+=') {
       keyTextStyle = [...keyTextStyle, style.keyShiftText]
@@ -135,6 +129,9 @@ class Keyboard extends Component<any, any> {
       key = ''
     } else if (key === 'ABC' && this.props.isDigit && keyboardIndex === 0) {
       key = '完成'
+    } else if (key === '#+=') {
+      /** 暂时不使用符号键盘 */
+      key = 'return'
     }
     return <Text style={keyTextStyle}>{key}</Text>
   }

@@ -74,13 +74,10 @@ export default StyleSheet.create({
   },
   keyText: {
     color: '#FFFFFF',
-    fontSize: 28,
+    fontSize: 24,
   },
   keyTextBold: {
     fontWeight: 'bold',
-  },
-  keyPressText: {
-    fontSize: 26,
   },
   keyShiftText: {
     fontSize: 18,
