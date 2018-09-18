@@ -40,34 +40,31 @@ class SecureTextInput extends Component<any, any> {
     this.props.showKeyboard(inputID, value, isDigit)
   }
 
-  clear = () => {
-    if (this.props.inputID === this.props.keyboardInputID) {
-      this.props.clearKeyboard()
-    } else {
-      this.props.onChangeText('')
-    }
-  }
-
   render() {
-    const {
+    let {
       inputID,
       value,
       placeholder = '',
+      isPassword = false,
       style: inputStyle = {},
       keyboardInputID,
+      clearKeyboard,
     } = this.props
 
     let focus = inputID === keyboardInputID
+    if (isPassword) {
+      value = value.replace(/\w/g, '●')
+    }
 
     return (
       <TouchableOpacity onPress={this.focus} style={[style.input, inputStyle]} activeOpacity={1}>
-        <Text style={style.inputText}>{value}</Text>
-        <View style={[style.inputCursor, focus && {backgroundColor: 'blue'}]}/>
+        <Text style={[style.inputText, isPassword && style.inputTextPassword]}>{value}</Text>
+        <View style={[style.inputCursor, focus && style.inputCursorFocus]}/>
         <Text style={style.inputPlaceholder}>{value.length === 0 && placeholder}</Text>
         <View style={style.inputFill}/>
 
-        {value.length > 0 &&
-        <TouchableOpacity onPress={this.clear}>
+        {focus && value.length > 0 &&
+        <TouchableOpacity onPress={clearKeyboard}>
           <Ionicons name='md-close-circle' size={18} color='#B0B0B0' style={{paddingTop: 3}}/>
         </TouchableOpacity>
         }
@@ -81,6 +78,7 @@ SecureTextInput.propTypes = {
   inputID: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   isDigit: PropTypes.bool,
+  isPassword: PropTypes.bool,
   maxLength: PropTypes.number,
   placeholder: PropTypes.string,
   style: ViewPropTypes.style,

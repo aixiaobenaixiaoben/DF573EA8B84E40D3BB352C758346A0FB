@@ -31,7 +31,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#578EDC',
+    color: '#368FC8',
   },
   row: {
     flexDirection: 'row',

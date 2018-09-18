@@ -100,7 +100,7 @@ class Keyboard extends Component<any, any> {
     } else if (key === 'DELETE') {
       this.props.deleteKey()
     } else if (key === 'SPACE') {
-      this.props.press(' ')
+      this.props.press('')
     } else {
       this.props.press(key)
     }

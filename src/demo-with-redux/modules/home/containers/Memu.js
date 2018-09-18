@@ -22,7 +22,7 @@ class Menu extends Component<any, any> {
                          placeholder='请输入手机号' style={{marginHorizontal: 20}}
                          value={a} onChangeText={(value) => this.setState({a: value})}/>
 
-        <SecureTextInput inputID='HOME-MENU-INPUT-PASSWORD' maxLength={15}
+        <SecureTextInput inputID='HOME-MENU-INPUT-PASSWORD' maxLength={15} isPassword
                          placeholder='请输入密码' style={{marginHorizontal: 20}}
                          value={b} onChangeText={(value) => this.setState({b: value})}/>
 
