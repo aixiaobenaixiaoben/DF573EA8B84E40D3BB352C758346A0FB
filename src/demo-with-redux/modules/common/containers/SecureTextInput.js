@@ -1,10 +1,11 @@
 /** @flow */
 import React, {Component} from "react"
-import {Text, TouchableOpacity, View} from "react-native"
+import {Text, TouchableOpacity, View, ViewPropTypes} from "react-native"
 import Ionicons from "react-native-vector-icons/Ionicons"
-import style from "./SecureTextInputStyle"
+import style from "./styles/SecureTextInput"
 import * as actions from "../actions/Keyboard"
 import {connect} from "react-redux"
+import PropTypes from "prop-types"
 
 
 class SecureTextInput extends Component<any, any> {
@@ -35,7 +36,7 @@ class SecureTextInput extends Component<any, any> {
   }
 
   focus = () => {
-    const {inputID, value, isDigit} = this.props
+    const {inputID, value, isDigit = false} = this.props
     this.props.showKeyboard(inputID, value, isDigit)
   }
 
@@ -74,6 +75,22 @@ class SecureTextInput extends Component<any, any> {
       </TouchableOpacity>
     )
   }
+}
+
+SecureTextInput.propTypes = {
+  inputID: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  isDigit: PropTypes.bool,
+  maxLength: PropTypes.number,
+  placeholder: PropTypes.string,
+  style: ViewPropTypes.style,
+
+  keyboardOutput: PropTypes.string.isRequired,
+  keyboardInputID: PropTypes.string.isRequired,
+
+  onChangeText: PropTypes.func.isRequired,
+  showKeyboard: PropTypes.func.isRequired,
+  clearKeyboard: PropTypes.func.isRequired,
 }
 
 export default connect(

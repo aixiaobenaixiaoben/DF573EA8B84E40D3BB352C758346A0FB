@@ -2,7 +2,6 @@ import {StyleSheet} from "react-native"
 
 export default StyleSheet.create({
   input: {
-    borderWidth: 1, borderColor: 'green',
     height: 44,
     flexDirection: 'row',
     alignItems: 'center',

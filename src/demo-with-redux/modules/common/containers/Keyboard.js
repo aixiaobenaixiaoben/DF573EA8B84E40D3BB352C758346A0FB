@@ -5,9 +5,10 @@ import Feather from "react-native-vector-icons/Feather"
 import Material from "react-native-vector-icons/MaterialCommunityIcons"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 import Entypo from "react-native-vector-icons/Entypo"
-import style from "./KeyBoardStyle"
+import style from "./styles/KeyBoard"
 import * as actions from "../actions/Keyboard"
 import {connect} from "react-redux"
+import PropTypes from "prop-types"
 
 
 const keys = [
@@ -236,6 +237,15 @@ class Keyboard extends Component<any, any> {
       </View>
     )
   }
+}
+
+Keyboard.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  isDigit: PropTypes.bool.isRequired,
+
+  hide: PropTypes.func.isRequired,
+  press: PropTypes.func.isRequired,
+  deleteKey: PropTypes.func.isRequired,
 }
 
 export default connect(
