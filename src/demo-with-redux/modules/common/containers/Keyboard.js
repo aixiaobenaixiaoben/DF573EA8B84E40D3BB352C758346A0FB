@@ -1,6 +1,6 @@
 /** @flow */
 import React, {Component} from "react"
-import {Keyboard as SysKeyboard, Text, TouchableOpacity, View} from "react-native"
+import {Keyboard as SysKeyboard, Platform, Text, TouchableOpacity, View} from "react-native"
 import Feather from "react-native-vector-icons/Feather"
 import Material from "react-native-vector-icons/MaterialCommunityIcons"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
@@ -46,7 +46,11 @@ class Keyboard extends Component<any, any> {
   }
 
   componentDidMount() {
-    this.keyboardWillShowListener = SysKeyboard.addListener('keyboardWillShow', this.hide)
+    if (Platform.OS === 'ios') {
+      this.keyboardWillShowListener = SysKeyboard.addListener('keyboardWillShow', this.hide)
+    } else {
+      this.keyboardWillShowListener = SysKeyboard.addListener('keyboardDidShow', this.hide)
+    }
   }
 
   componentWillUnmount() {
