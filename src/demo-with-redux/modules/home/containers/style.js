@@ -1,12 +1,13 @@
 import {StyleSheet} from "react-native"
 
 export default StyleSheet.create({
-  input: {
-    borderWidth: 1, borderColor: 'red',
-    margin: 20,
+  view: {
+    borderWidth: 4,
+    borderColor: 'blue',
   },
-  text: {
-    borderWidth: 1, borderColor: 'green',
-    margin: 20,
+  scrollView: {
+    borderWidth: 4,
+    borderColor: 'red',
+    flex: 1,
   },
 })
