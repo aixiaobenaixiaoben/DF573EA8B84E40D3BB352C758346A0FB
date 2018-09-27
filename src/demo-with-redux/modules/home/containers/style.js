@@ -5,9 +5,10 @@ export default StyleSheet.create({
     borderWidth: 4,
     borderColor: 'blue',
   },
-  scrollView: {
-    borderWidth: 4,
-    borderColor: 'red',
-    flex: 1,
+  button: {
+    margin: 10,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: 'blue',
   },
 })
