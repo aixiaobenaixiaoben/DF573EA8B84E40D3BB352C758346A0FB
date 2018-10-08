@@ -1,8 +1,8 @@
-/** @flow */
 import React, {Component} from "react"
-import {ScrollView, Text, TouchableOpacity, CameraRoll} from "react-native"
+import {CameraRoll, ScrollView, Text, TouchableOpacity} from "react-native"
 import ImagePicker from 'react-native-image-crop-picker'
 import style from "./style"
+import ImagePickerIOS from 'react-native-image-picker'
 
 
 class Menu extends Component<any, any> {
@@ -48,6 +48,44 @@ class Menu extends Component<any, any> {
     CameraRoll.saveToCameraRoll(image.path, 'photo')
   }
 
+  photoSelect = () => {
+    const options = {
+      mediaType: 'photo',
+      allowsEditing: true,
+      quality: 1,
+      storageOptions: {
+        skipBackup: true,
+        path: 'imagePicker',
+      },
+    }
+    ImagePickerIOS.launchImageLibrary(options, (response) => {
+      if (response.uri) {
+        console.log(response.uri)
+      } else if (response.error) {
+        console.log('error')
+      }
+    })
+  }
+
+  cameraSelect = () => {
+    const options = {
+      mediaType: 'photo',
+      allowsEditing: true,
+      quality: 1,
+      storageOptions: {
+        skipBackup: true,
+        path: 'imagePicker',
+      },
+    }
+    ImagePickerIOS.launchCamera(options, (response) => {
+      if (response.uri) {
+        console.log(response.uri)
+      } else if (response.error) {
+        console.log('error')
+      }
+    })
+  }
+
   render() {
     return (
       <ScrollView keyboardShouldPersistTaps='handled' contentContainerStyle={style.scrollView} style={style.view}>
@@ -58,6 +96,14 @@ class Menu extends Component<any, any> {
 
         <TouchableOpacity style={style.button} onPress={this.camera}>
           <Text>拍摄照片</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={style.button} onPress={this.photoSelect}>
+          <Text>获取照片2</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={style.button} onPress={this.cameraSelect}>
+          <Text>拍摄照片2</Text>
         </TouchableOpacity>
 
 
